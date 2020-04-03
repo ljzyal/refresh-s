@@ -11,7 +11,8 @@ on:
   #    - master
   schedule:
     - cron: "45 2 15 * *"
-
+  watch:
+    types: [started]
     
 jobs:
   build:
@@ -23,10 +24,7 @@ jobs:
     - name: Set up Python #安装python
       uses: actions/setup-python@v1
       with:
-        python-version: 3.8
-    - name: Install requests #安装requests
-      run: |
-        pip install requests
+        python-version: 3.6
     - name: Update randapi #更新api排序
       run: | 
         python updaterand.py
